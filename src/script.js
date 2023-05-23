@@ -1,4 +1,4 @@
-function loadCSVFiles() {
+export function loadCSVFiles() {
     const directoryInput = document.getElementById('directoryInput');
     const files = directoryInput.files;
   

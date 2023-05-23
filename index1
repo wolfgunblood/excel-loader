@@ -11,16 +11,17 @@
 <body>
     <h1>CSV File Loader</h1>
 
-    <input type="file" id="fileInput" multiple>
+    <input type="file" id="directoryInput" webkitdirectory directory multiple>
     <button onclick="loadCSVFiles()">Load CSV Files</button>
 
     <div id="output"></div>
 
     <script>
         function loadCSVFiles() {
-            const fileInput = document.getElementById('fileInput');
-            const files = fileInput.files;
-
+            const directoryInput = document.getElementById('directoryInput');
+            const files = directoryInput.files;
+            console.log(directoryInput);
+            console.log(files);
             const outputDiv = document.getElementById('output');
             outputDiv.innerHTML = '';
 
@@ -31,14 +32,13 @@
                     reader.onload = function (e) {
                         const contents = e.target.result;
                         // Process the CSV data as needed
+                        // console.log(contents);
                         outputDiv.innerHTML += `<p>Loaded file: ${file.name}</p>`;
-                        console.log(contents);
                     };
                     reader.readAsText(file);
                 }
             }
         }
-    </script>
     </script>
 </body>
 
